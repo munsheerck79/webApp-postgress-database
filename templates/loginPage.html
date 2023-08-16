@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login Page</title>
+	<link rel="stylesheet" type="text/css" href="loginStyle.css">
+</head>
+<body>
+	<div class="login-box">
+		<h2>Login Here</h2>
+		<form action="/" method="post">
+			
+			<p>Email</p>
+			<input type="text" id="Email " name="Email" placeholder="Enter Email">
+			<p>Password</p>
+			<input type="password" id="Password" name="Password" placeholder="Enter Password">
+			<h4>{{.}}</h4>
+			<!-- <input type="submit" name="" value="Login"> -->
+			<button type="submit" name="" value="login">Login</button>
+			<p class="signup-link">Don't have an account? <a href="/signup">Sign Up</a></p>
+		</form>
+	</div>
+</body>
+<style>
+	body {
+	margin: 0;
+	padding: 0;
+	background-color: #262b2b;
+}
+
+.login-box {
+	width: 350px;
+	height: 450px;
+	background-color: #FFFFFF;
+	color: #040404;
+	top: 50%;
+	left: 50%;
+	position: absolute;
+	transform: translate(-50%,-50%);
+	box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.2);
+	padding: 50px;
+	align-content: center;
+}
+
+.login-box h2 {
+	margin: 0;
+	padding: 10;
+	font-size: 40px;
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+.login-box p {
+	margin: 0;
+	padding: 0;
+	font-weight: bold;
+	align-items: center;
+}
+
+.login-box input {
+	width: 100%;
+	margin-bottom: 24px;
+}
+
+.login-box input[type="text"], input[type="password"] {
+	border: none;
+	border-bottom: 1px solid #000000;
+	background: transparent;
+	outline: none;
+	height: 40px;
+	color: #030954;
+	font-size: 16px;
+}
+.login-box h4{
+	color: #7a0909 ;
+	font-size: 14px;
+	font-weight: lighter;
+	margin-bottom: 0%;
+	margin-top: 0%;
+}
+
+.login-box button[type="submit"] {
+	margin-bottom: 20px;
+	margin-top: 20px;
+	margin-left: 6%;
+	border: none;
+	outline: none;
+	height: 50px;
+	width:85%;
+	align-items: center;
+	background: #07d3a4;
+	color: #030303;
+	font-size: 30px;
+	border-radius: 60px;
+	
+}
+
+.login-box button[type="submit"]:hover {
+	transition: 1000ms;
+	cursor: pointer;
+	background: #108062;
+	color: #000000;
+	border-radius: 0px;
+	width:90%;
+}
+
+.signup-link {
+	text-align: center;
+	font-size: 16px;
+	margin-top: 20px;
+}
+
+.signup-link a {
+	color: #0000FF;
+}
+
+</style>
+</html>
+

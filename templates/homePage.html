@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>My Website</title>
+	<style>
+		/* CSS code goes here */
+		body {
+			margin: 0;
+			padding: 0;
+			font-family: Arial, sans-serif;
+		}
+		header {
+			background-color: #333333;
+			color: #fff;
+			padding: 5px;
+			font-size: 90%;
+			text-align: center;
+		}
+		header :hover{
+			background-color: #0a0a0a;
+			color: rgb(13, 188, 188);
+			transition:1.5s;
+			font-size: 250%;
+			padding: 10px;
+	
+
+		}
+		nav {
+			background-color: #f2f2f2;
+			padding: 10px;
+			text-align: center;
+		}
+		nav a {
+			display: inline-block;
+			padding: 10px;
+			color: #333;
+			text-decoration: none;
+			font-weight: bold;
+			font-size: 18px;
+			transition: color 0.2s ease-in-out;
+		}
+		nav a:hover {
+			color: #744e4e;
+		}
+		section {
+			margin: 20px;
+			padding: 20px;
+			background-color: #f9f9f9;
+			border: 1px solid #ccc;
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-around;
+			align-items: center;
+		}
+		section img {
+			max-width: 90%;
+			height: auto;
+			margin-bottom: 20px;
+		}
+		footer {
+			background-color: #333;
+			color: #fff;
+			padding: 20px;
+			text-align: center;
+		}
+		.logout-button {
+			background-color: #0508a8;
+			color: #fff;
+			padding: 10px 20px;
+			border: none;
+			border-radius: 4px;
+			font-weight: bold;
+			font-size: 16px;
+			cursor: pointer;
+			transition: background-color 0.2s ease-in-out;
+		}
+		.logout-button:hover {
+			background-color: #430c29;
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<h1>WELCOME &nbsp;&nbsp; {{.}} </h1>
+	</header>
+	<nav>
+		<a href="#">Home</a>
+		<a href="#">About</a>
+		<a href="#">Contact</a>
+		<a href="/logout"> <button class="logout-button" >Logout</button> </a>
+	
+	</nav>
+	<section>
+		<img src="https://picsum.photos/id/1/400/300" alt="Image 1">
+		<img src="https://picsum.photos/id/2/400/300" alt="Image 2">
+		<img src="https://picsum.photos/id/3/400/300" alt="Image 3">
+		<img src="https://picsum.photos/id/4/400/300" alt="Image 4">
+		<img src="https://picsum.photos/id/5/400/300" alt="Image 5">
+		<img src="https://picsum.photos/id/6/400/300" alt="Image 6">
+	</section>
+	<footer>
+		<p>&copy; 2023 My Website</p>
+	</footer>
+</body>
+</html>

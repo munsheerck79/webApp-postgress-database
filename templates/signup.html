@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sign Up Page</title>
+	<link rel="stylesheet" type="text/css" href="">
+</head>
+<body>
+	<div class="signup-box">
+		<h2>Sign Up Here</h2>
+		<form action="/signup" method="post">
+			<p>Full Name</p>
+			<input type="text" name="FirstName" id="" placeholder="Enter Full Name">
+			<p>Email</p>
+			<input type="text" name="Email" placeholder="Enter Email">
+			<p>Password</p>
+			<input type="password" name="Password" placeholder="Enter Password">
+			<h4>{{.}}</h4>
+			<!-- <button class="btn-btn-primery" type="submit">Sign Up</button> -->
+			<input class="btn-btn-primery" type="submit" name="" value="Sign Up">
+		</form>
+	</div>
+</body>
+<style>
+	body {
+	margin: 0;
+	padding: 0;
+	background-color: #322e2e;
+}
+
+.signup-box {
+	width: 420px;
+	height: 470px;
+	background-color: #FFFFFF;
+	color: #000000;
+	top: 50%;
+	left: 50%;
+	position: absolute;
+	transform: translate(-50%,-50%);
+	box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.2);
+	padding: 30px;
+}
+
+.signup-box h2 {
+	margin: 0;
+	padding: 0;
+	font-size: 26px;
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+.signup-box p {
+	margin: 0;
+	padding: 0;
+	font-weight: bold;
+}
+
+.signup-box input {
+	width: 100%;
+	margin-bottom: 22px;
+}
+
+.signup-box input[type="text"], input[type="password"] {
+	border: none;
+	border-bottom: 1px solid #000000;
+	background: transparent;
+	outline: none;
+	height: 40px;
+	color: #000000;
+	font-size: 16px;
+}
+.signup-box h4{
+	color: rgba(166, 0, 0, 0.996);
+	font-weight: lighter;
+}
+
+.signup-box input[type="submit"] {
+	border: none;
+	outline: none;
+	height: 40px;
+	background: #000000;
+	color: #FFFFFF;
+	font-size: 18px;
+	border-radius: 20px;
+}
+
+.signup-box input[type="submit"]:hover {
+	transition: 1s;
+	cursor: pointer;
+	background: #0531a0;
+	color: #FFFFFF;
+}
+
+.admin-signup-link {
+	text-align: center;
+	font-size: 14px;
+	margin-top: 20px;
+}
+
+.admin-signup-link a {
+	color: #0000FF;
+}
+
+</style>
+</html>

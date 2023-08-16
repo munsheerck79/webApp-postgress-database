@@ -1,0 +1,187 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+	<title>Sign Up Page</title>
+	<link rel="stylesheet" type="text/css" href="signAdminStyle.css">
+</head>
+<body>
+	<div class="signup-box">
+		<h2>Sign Up Here</h2>
+		<form action="/adminsignup" method="post">
+			<p>Full Name</p>
+			<input type="text" name="Name" placeholder="Enter Full Name" required>
+			<p>Phone Number</p>
+			<input type="text" name="Phone" placeholder="Enter Phone Number" required>
+			<p>Address</p>
+			<input type="text" name="Address" placeholder="Enter Address" required>
+			<p>State</p>
+			<input type="text" name="State" placeholder="Enter State" required>
+			<p>Country</p>
+			<input type="text" name="Country" placeholder="Enter Country" required>
+			<p>Username</p>
+			<input type="text" name="Username" placeholder="Enter Username" required>
+			<p>Email</p>
+			<input type="email" name="Email" placeholder="Enter Email" required>
+			<p>Password</p>
+			<input type="password" name="Password" placeholder="Enter Password" required>
+			<h4>{{.}}</h4>
+			<input type="submit" name="" value="Sign Up">
+		</form>
+	</div>
+</body>
+<style>
+	body {
+	margin: 0;
+	padding: 0;
+	background-color: #F5F5F5;
+}
+
+.signup-box {
+	width: 420px;
+	height: 750px;
+	background-color: #FFFFFF;
+	color: #000000;
+	top: 50%;
+	left: 50%;
+	position: absolute;
+	transform: translate(-50%,-50%);
+	box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.2);
+	padding: 20px;
+}.signup-box h4{
+	color: #890326;
+}
+
+.signup-box h2 {
+	margin: 0;
+	padding: 0;
+	font-size: 22px;
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+
+.signup-box p {
+	margin: 0;
+	padding: 0;
+	font-weight: bold;
+}
+
+.signup-box input {
+	width: 75%;
+	margin-bottom: 20px;
+}
+
+.signup-box input[type="text"], input[type="password"], input[type="email"] {
+	border: none;
+	border-bottom: 1px solid #000000;
+	background: transparent;
+	outline: none;
+	height: 40px;
+	color: #030202;
+	font-size: 16px;
+}
+
+.signup-box input[type="submit"] {
+	padding-top: 1px;
+	margin-left: 15%;
+	margin-top: 5%;
+	border: none;
+	outline: none;
+	height: 50px;
+	background: #000000;
+	color: #FFFFFF;
+	font-size: 20px;
+	border-radius: 20px;
+}
+
+.signup-box input[type="submit"]:hover {
+	cursor: pointer;
+	background: #890326;
+	color: #FFFFFF;
+}
+
+</style>
+</html> -->
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Add User</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <div class="container mt-5">
+      <h1>Add User</h1>
+      {{if .Alert}}
+      <h4 class={{.Color}}>{{.Alert}}</h4>
+      {{end}}
+      <form action="/admin/adduser" method="POST" novalidate>
+        <div class="form-group">{{if .FirstName}} 
+          <p style="color: rgb(154, 0, 0); font-size: medium;">{{.FirstName}}</p>
+          {{else}}
+          <label for="firstname">First Name:</label>
+          {{end}}
+          <input
+            type="text"
+            class="form-control"
+            id="firstname"
+            name="fname"
+            required
+          />
+        </div>
+        <div class="form-group">
+          {{if .LastName}}
+          <p style="color: rgb(154, 0, 0); font-size: medium;">{{.LastName}} </p>
+          {{else}}
+          <label for="lastname">Last Name:</label>
+          {{end}}
+          <input
+            type="text"
+            class="form-control"
+            id="lastname"
+            name="lname"
+            required
+          />
+        </div>
+        <div class="form-group">
+          {{if .Email}}
+          <p style="color: rgb(154, 0, 0);">{{.Email}}</p>
+          {{else}}
+          <label for="email">Email:</label>
+          {{end}}
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            name="email"
+            required
+          />
+        </div>
+        <div class="form-group">{{if .Password}}
+          <p style="color: rgb(154, 0, 0);">{{.Password}}</p>
+          {{else}}
+          <label for="password">Password:</label>
+          {{end}}
+          <input
+            type="password"
+            class="form-control"
+            id="password"
+            name="password"
+            required
+          />
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+      <a href="/admin/home" class="btn btn-secondary mt-3">Go to Admin Panel</a>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>
+ -->

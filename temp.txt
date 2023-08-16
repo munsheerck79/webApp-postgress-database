@@ -1,0 +1,105 @@
+type Admin struct {
+	gorm.Model
+	FullName    string `gorm:"not null"`
+	PhoneNumber string `gorm:"(10);not null;"`
+	Address     string `gorm:"not null"`
+	State       string `gorm:"not null"`
+	Country     string `gorm:"not null"`
+	UserName    string `gorm:"(10);not null;"`
+	Email       string `gorm:"primarykey;unique;not null;"`
+	Password    string `gorm:"not null"`
+	Status      string
+}
+
+=====================================================================================
+
+var Data models.Admin
+
+// signup get method
+func AdminSignup(s *gin.Context) {
+	fmt.Println("call get method of signupadmin")
+
+	//view signup page
+	s.Header("Cache-Control", "no-cache, no-store, must-revalidate")
+
+	s.HTML(http.StatusOK, "signAdmin.html", nil)
+
+}
+
+// signup submission post
+func AdminSignupSubmission(s *gin.Context) {
+
+	//get data from form vlues and
+	//store data
+	Data.FullName = s.Request.PostFormValue("Name")
+	Data.PhoneNumber = s.Request.PostFormValue("Phone")
+	Data.Address = s.Request.PostFormValue("Address")
+	Data.State = s.Request.PostFormValue("State")
+	Data.Country = s.Request.PostFormValue("Country")
+	Data.UserName = s.Request.PostFormValue("Username")
+	Data.Email = s.Request.PostFormValue("Email")
+	Data.Password = s.Request.PostFormValue("Password")
+	Data.Status = "admin"
+
+	//validate data & check data allready in db
+
+	if Data.FullName == "" || Data.PhoneNumber == "" || Data.Address == "" || Data.State == "" || Data.Country == "" || Data.UserName == "" ||
+		Data.Email == "" || Data.Password == "" {
+		fmt.Println("fill in the column")
+		Response := "*Please fill up  all column "
+		s.HTML(http.StatusBadRequest, "signup.html", Response)
+		return
+	}
+	if !isValidEmail(Data.Email) {
+		fmt.Println("invalid email")
+		Response := "*Please enter the valid email "
+		s.HTML(http.StatusBadRequest, "signup.html", Response)
+		return
+	}
+
+	err := connections.AddNewAdmin(Data)
+	if err != nil {
+		s.HTML(400, "signAdmin.html", err)
+	} else if err == nil {
+		fmt.Println("admin signup compleated")
+		//renter login page
+		Responce := "Login your admin panel"
+		s.HTML(http.StatusOK, "loginPage.html", Responce)
+	}
+}
+==============================================================================================
+func AddNewAdmin(Data models.Admin) error {
+	var ExData models.Admin
+
+	//check existing account or not
+
+	Query := `SELECT * FROM admins  WHERE email = ?`
+	err := db.Raw(Query, Data.Email).Scan(&ExData).Error
+	if err != nil {
+		fmt.Println("find a error at Raw in add new admin func")
+		return err
+	}
+	if ExData.ID != 0 {
+		fmt.Println("admin exist")
+		return errors.New("admin already exists")
+	}
+
+	//if else insert into db
+	if ExData.ID == 0 {
+		s := "admin"
+
+		Query_ := `INSERT INTO admins(FullName,PhoneNumber,Address,State,Country,UserName,Email,Password,Status)
+		VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9)`
+		err = db.Exec(Query_, Data.FullName, Data.PhoneNumber, Data.Address, Data.State, Data.Country, Data.UserName, Data.Email, Data.Password, s).Error //err
+		if err != nil {
+			return errors.New("error:culdnt insert data")
+		}
+	}
+	fmt.Printf("\n admin added successfully\n")
+	return nil
+}
+=======================================================================================================================
+
+gin.GET("/adminsignup", Handller.AdminSignup)
+	gin.POST("/adminsignup", Handller.AdminSignupSubmission)
+===================================================================================
